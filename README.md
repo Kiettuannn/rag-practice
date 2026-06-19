@@ -3,7 +3,7 @@
 
 # 1. Kiến trúc RAG hiện đại
 
-![image.png](image.png)
+![image.png](/images/image.png)
 
 ## 1.1 Phase 1: Indexing
 
@@ -12,7 +12,7 @@
 - Các bước cơ bản:
   1. **Document Loading:**
 
-     ![image.png](image%201.png)
+     ![image.png](/images/image%201.png)
      - **Trích xuất nội dung**
      - **Thu thập siêu dữ liệu:** trích xuất thôg tin metadata
        - vai trò của metadata ví dụ: Trong tính năng pre- filtering người dùng hỏi về “Doanh thu năm 2024”, hệ thống sẽ dùng metadata để lọc đúng các tài liệu trong năm 2024 thay vì tìm kiếm toàn bộ dữ liệu.Documents
@@ -31,11 +31,11 @@
            - Để đảm bảo ngữ nghĩa ko bị mất tại điểm cắt giữa 2 chunk liền kề
            - thiết lập tham số chunk_overlap = 10 → 20% độ dài chunk
            - Ví dụ:
-             ![image.png](image%202.png)
+             ![image.png](/images/image%202.png)
 
         **3. Chiến lược indexing nâng cao**
 
-        ![image.png](image%203.png)
+        ![image.png](/images/image%203.png)
 
 ## 1.2 Phase 2: Retrieval
 
@@ -47,16 +47,16 @@
   - **Multi-Query:**
     - Dùng LLM sinh ra 3 - 5 biến thể câu hỏi
     - Dùng các câu đó tìm kiếm → gộp kết quả lại
-    ![image.png](image%204.png)
+      ![image.png](/images/image%204.png)
   - **HyDE (Hypothetical Document Embeddings)**
     - Yêu cầu LLM viết ra câu trả lời giả định cho câu hỏi
     - Sau đó dùng vector embedding của câu trả lời giả định này để tìm kiếm
-    ![image.png](image%205.png)
+      ![image.png](/images/image%205.png)
 
 ### 2. Similarity search
 
 - Dense Retrieval: Hệ thống tính toán độ tương đồng giữa q (query) và các vector tài liệu d trong CSDL
-  ![image.png](image%206.png)
+  ![image.png](/images/image%206.png)
 - Algorithm:
   - Đảm bảo tốc độ khi dữ liệu lớn
   - Thay vì so khớp từng đôi một: Brute-force
@@ -74,7 +74,7 @@
     - Các thuật toán này hoạt động = cách đếm tần số xuất hiện của chữ chính xác của keyword
 - Reciprocal Rank Fusion (RRF):
   - Là thuật toán hậu xử lí dùng để gộp và xếp hạng lại kết quả từ 2 luồng trên
-  ![image.png](image%207.png)
+    ![image.png](/images/image%207.png)
 
 ### 4. Re-ranking
 
@@ -94,8 +94,8 @@
       - Chính xác hơn → chậm hơn
 - **Chiến lược “Hình phễu”:**
   - Retrieve many: lấy nhanh 50 tài liệu bằng bi-encoder → re-rank few : lấy 5 doc tốt nhất bằng cross-encoder → Đưa vào LLM
-    ![image.png](image%208.png)
-    ![image.png](image%209.png)
+    ![image.png](/images/image%208.png)
+    ![image.png](/images/image%209.png)
 
 ## 1.3 Phase 3: Generation
 
@@ -112,24 +112,24 @@
   - Context reordering:
     - dựa trên hiện tượng “Lost in the middle”
     - LLM thường chú ý đầu và cuối, quên giữa
-    ![image.png](image%2010.png)
+      ![image.png](/images/image%2010.png)
   - Context Compressing:
     - Sử dụng LLM nhỏ hoặc thuật toán NLP ⇒ tóm tắt ý chính ⇒ Đưa cho LLM
-    ![image.png](image%2011.png)
+      ![image.png](/images/image%2011.png)
 
 ### 2. Prompt Engineering
 
 - **Zero-short Prompting:**
   - Sử dụng 1 template cố định để hướng dẫn mô hình trả lời dựa trên ngữ cảnh mà ko cần ví dụ mẫu
-  ![image.png](image%2012.png)
+    ![image.png](/images/image%2012.png)
 - **Few-shot Learning**
   - Cung cấp thêm 1 - 2 ví dụ mẫu
   - gồm bộ 3: context, question, answer chuẩn
   - Đưa vào prompt để llm học và trả lời theo mẫu đó
-    ![image.png](image%2013.png)
+    ![image.png](/images/image%2013.png)
 - Chain-of Thought (CoT - Chuỗi suy luận)
   - Yêu cầu mô hình suy nghĩ từng bước dựa trên context trước khi đưa ra kết quả
-    ![image.png](image%2014.png)
+    ![image.png](/images/image%2014.png)
 
 ## 3. Generation & Attribution
 
@@ -142,20 +142,20 @@
 
 # 2. Thư viện LangChain
 
-![image.png](image%2015.png)
+![image.png](/images/image%2015.png)
 
-![image.png](image%2016.png)
+![image.png](/images/image%2016.png)
 
-![image.png](image%2017.png)
+![image.png](/images/image%2017.png)
 
-![image.png](image%2018.png)
+![image.png](/images/image%2018.png)
 
-![image.png](image%2019.png)
+![image.png](/images/image%2019.png)
 
-![image.png](image%2020.png)
+![image.png](/images/image%2020.png)
 
 # 3. Thực hành
 
 ## 1. System overview
 
-![image.png](image%2021.png)
+![image.png](/images/image%2021.png)
